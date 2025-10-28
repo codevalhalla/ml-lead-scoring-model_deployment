@@ -5,38 +5,16 @@ import requests
 
 url='http://localhost:9696/predict'
 
-customer = {
-
-    "gender": "female",
-    "seniorcitizen": 0,
-    "partner": "yes",
-    "dependents": "no",
-    "phoneservice": "no",
-    "multiplelines": "no_phone",
-    "internetservice": "dsl",
-    "onlinesecurity": "no",
-    "onlinebackup": "yes",
-    "deviceprotection": "no",
-    "techsupport": "no",
-    "streamingtv": "no",
-    "streamingmovies": "no",
-    "contract": "month-to-month",
-    "paperlessbilling": "yes",
-    "paymentmethod": "electronic_check",
-    "tenure": 24,
-    "monthlycharges": 29.85,
-    "totalcharges": 29.85
+lead_details = {
+    "lead_source": "paid_ads",
+    "number_of_courses_viewed": 2,
+    "annual_income": 79276.0
 }
 
 
-response = requests.post(url,json=customer).json()
+response = requests.post(url,json=lead_details).json()
 
-print(response)
-
-if response['churn']:
-    print('send promotional email')
-else:
-    print('do nothing')
+print(response['lead_conversion_probability'])
 
 
 
