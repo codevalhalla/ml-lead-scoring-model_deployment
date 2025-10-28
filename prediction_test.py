@@ -13,7 +13,6 @@ lead_details = {
 
 
 response = requests.post(url,json=lead_details).json()
-
 print(response['lead_conversion_probability'])
 
 
