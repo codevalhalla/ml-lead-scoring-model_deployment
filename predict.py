@@ -22,6 +22,7 @@ def predict():
     result = {
         'lead_conversion_probability': float(y_pred)
     }
+    
     return jsonify(result)
 
 
